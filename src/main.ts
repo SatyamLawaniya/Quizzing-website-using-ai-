@@ -133,7 +133,7 @@ function downloadResults() {
 function handleGlobalClick(e: MouseEvent) {
   if (e.target === appRoot || (e.target as HTMLElement).id === 'main-container') {
     secretClicks++;
-    if (secretClicks === 6) {
+    if (secretClicks === 10) {
       showSecretModal();
       secretClicks = 0;
     }
