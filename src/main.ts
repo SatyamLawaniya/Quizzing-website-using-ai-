@@ -154,7 +154,7 @@ function showSecretModal() {
           <svg style="animation: spin-slow 8s linear infinite;" class="text-yellow-400 w-16 h-16" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V2m0 5.5L15.5 4M12 7.5 8.5 4m3.5 11.5a4.5 4.5 0 1 1-4.5-4.5m4.5 4.5a4.5 4.5 0 1 0 4.5-4.5M12 15.5V22m0-6.5L15.5 20m-3.5-4.5L8.5 20m7-8h5.5m-5.5 0-2.5-3.5m2.5 3.5-2.5 3.5m-11.5-3.5H2m5.5 0 2.5-3.5m-2.5 3.5 2.5 3.5"/></svg>
         </div>
         <h3 class="text-2xl font-serif italic text-slate-800 leading-relaxed">
-          "I didn't build it for no reason lol, you're probably the best person I have ever met, I know you would not left click 6 times on this so I am hiding this secret message here, I really hope I could be with you, guess I will never say it, I hope you stumble upon it somehow and read this stupid message which I decided to leave after a lot of deep breathes"
+          "I didn't build it for no reason lol, you're probably the best person I have ever met, I know you would not left click 20 times on this so I am hiding this secret message here, I really hope I could be with you, guess I will never say it, I hope you stumble upon it somehow and read this stupid message which I decided to leave after a lot of deep breathes"
         </h3>
         <div class="pt-6 border-t border-yellow-100 italic font-medium text-slate-400">
           Yours, Satyam
