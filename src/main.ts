@@ -118,13 +118,21 @@ function downloadResults() {
   doc.text(`Time Spent: ${formatTime(quizResult.timeSpent)}`, 20, 40);
 
   quizResult.mcqs.forEach((mcq, i) => {
-    const y = 60 + (i * 40);
-    if (y > 270) doc.addPage();
+    const y = 60 + (i * 50);
+    if (y > 250) doc.addPage();
     doc.text(`${i + 1}. ${mcq.question}`, 20, y % 280);
     doc.text(`Your Answer: ${quizResult?.userAnswers[i] || 'None'}`, 20, (y + 10) % 280);
     doc.text(`Correct Answer: ${mcq.correctAnswer}`, 20, (y + 20) % 280);
     const status = quizResult?.userAnswers[i] === mcq.correctAnswer ? 'CORRECT' : 'WRONG';
     doc.text(`Status: ${status}`, 20, (y + 30) % 280);
+    if (!isCorrect && mcq.explanation) {
+      doc.setFontSize(10);
+      doc.setTextColor(100);
+      const explanationLines = doc.splitTextToSize(`Why it's wrong: ${mcq.explanation}`, 170);
+      doc.text(explanationLines, 20, (y + 40) % 280);
+      doc.setFontSize(12);
+      doc.setTextColor(0);
+    }
   });
 
   doc.save('quiz_results.pdf');
@@ -466,6 +474,13 @@ function renderReview(container: HTMLElement) {
                       <div class="text-lg font-bold text-green-700">${mcq.correctAnswer}</div>
                     </div>
                   </div>
+                  
+                  ${mcq.explanation ? `
+                    <div class="p-5 bg-red-50/50 border border-red-200/50 rounded-2xl mt-4">
+                      <div class="text-[10px] font-bold text-red-500 uppercase tracking-widest mb-2">Why it's wrong</div>
+                      <div class="text-slate-600 leading-relaxed">${mcq.explanation}</div>
+                    </div>
+                  ` : ''}
                 ` : ''}
               </div>
             </div>

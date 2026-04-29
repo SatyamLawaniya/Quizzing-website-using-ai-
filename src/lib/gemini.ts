@@ -15,7 +15,7 @@ export async function parseQuizFromPDF(base64Data: string): Promise<MCQ[]> {
           },
         },
         {
-          text: "Extract all Multiple Choice Questions (MCQs) and their correct answers from this PDF. For each MCQ, provide the question text, a list of exactly 4 options, and the string value of the correct answer. Ensure the correct answer matches one of the options exactly. Return the data as a JSON array.",
+          text: "Extract all Multiple Choice Questions (MCQs) and their correct answers from this PDF. For each MCQ, provide the question text, a list of exactly 4 options, the string value of the correct answer, and an explanation for why the wrong answers are incorrect. Ensure the correct answer matches one of the options exactly. Return the data as a JSON array.",
         },
       ],
     },
@@ -32,9 +32,10 @@ export async function parseQuizFromPDF(base64Data: string): Promise<MCQ[]> {
               items: { type: Type.STRING },
               description: "Array of exactly 4 options."
             },
-            correctAnswer: { type: Type.STRING }
+            correctAnswer: { type: Type.STRING },
+            explanation: { type: Type.STRING }
           },
-          required: ["question", "options", "correctAnswer"]
+          required: ["question", "options", "correctAnswer", "explanation"]
         }
       }
     }
