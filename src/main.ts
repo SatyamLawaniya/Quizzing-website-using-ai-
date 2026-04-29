@@ -123,7 +123,8 @@ function downloadResults() {
     doc.text(`${i + 1}. ${mcq.question}`, 20, y % 280);
     doc.text(`Your Answer: ${quizResult?.userAnswers[i] || 'None'}`, 20, (y + 10) % 280);
     doc.text(`Correct Answer: ${mcq.correctAnswer}`, 20, (y + 20) % 280);
-    const status = quizResult?.userAnswers[i] === mcq.correctAnswer ? 'CORRECT' : 'WRONG';
+    const isCorrect = quizResult?.userAnswers[i] === mcq.correctAnswer;
+    const status = isCorrect ? 'CORRECT' : 'WRONG';
     doc.text(`Status: ${status}`, 20, (y + 30) % 280);
     if (!isCorrect && mcq.explanation) {
       doc.setFontSize(10);
