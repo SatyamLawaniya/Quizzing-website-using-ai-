@@ -26,6 +26,7 @@ let isProcessing = false;
 let quizResult: QuizResult | null = null;
 let secretClicks = 0;
 let timerInterval: any = null;
+let secretAudio: HTMLAudioElement | null = null;
 
 const appRoot = document.getElementById('app')!;
 
@@ -150,6 +151,12 @@ function handleGlobalClick(e: MouseEvent) {
 }
 
 function showSecretModal() {
+  // Play the secret song
+  secretAudio = new Audio('./Buck Owens Made In Japan Lyrics.mp3');
+  secretAudio.loop = true;
+  secretAudio.volume = 0.5;
+  secretAudio.play().catch(console.error);
+  
   const modal = document.createElement('div');
   modal.id = 'secret-modal';
   modal.className = 'fixed inset-0 z-[100] flex items-center justify-center p-6 bg-yellow-950/20 backdrop-blur-lg';
@@ -176,6 +183,10 @@ function showSecretModal() {
   `;
   document.body.appendChild(modal);
   document.getElementById('close-secret')?.addEventListener('click', () => {
+    if (secretAudio) {
+      secretAudio.pause();
+      secretAudio = null;
+    }
     modal.remove();
   });
 }
