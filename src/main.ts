@@ -3,6 +3,7 @@ import { MCQ, QuizState, QuizResult } from './types';
 import { parseQuizFromPDF } from './lib/gemini';
 import { jsPDF } from 'jspdf';
 import confetti from 'canvas-confetti';
+import secretSongUrl from '../Buck Owens Made In Japan Lyrics.mp3?url';
 
 // Create icons using Lucide
 const createIcon = (Icon: any, className = "") => {
@@ -152,7 +153,7 @@ function handleGlobalClick(e: MouseEvent) {
 
 function showSecretModal() {
   // Play the secret song
-  secretAudio = new Audio('./Buck Owens Made In Japan Lyrics.mp3');
+  secretAudio = new Audio(secretSongUrl);
   secretAudio.loop = true;
   secretAudio.volume = 0.5;
   secretAudio.play().catch(console.error);
